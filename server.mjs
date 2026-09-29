@@ -40,6 +40,6 @@ server.on('error', error => {
   process.exitCode = 1;
 });
 server.listen(port, '0.0.0.0', () => {
-  console.log(`Миний аялал: http://localhost:${port}`);
+  console.log(`Тэмдэглэл: http://localhost:${port}`);
   console.log(`Codespaces → Ports → ${port} → Open in Browser`);
 });
