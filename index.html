@@ -7550,6 +7550,567 @@ body::after {
 
 </style>
 
+
+<style id="temdeglel-safe-day-night">
+
+/* =============================================
+   PROFILE — ӨДӨР / ШӨНӨ
+   ============================================= */
+
+.display-mode-profile-card{
+  margin-bottom:14px;
+}
+
+.display-mode-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+.display-mode-choice{
+  appearance:none;
+  border:1.5px solid var(--paper2);
+  background:var(--paper2);
+  color:var(--ink);
+  border-radius:18px;
+  padding:13px 14px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-align:left;
+  cursor:pointer;
+}
+
+.display-mode-choice.active{
+  border-color:var(--pink-d);
+  background:var(--card);
+  box-shadow:0 4px 12px rgba(80,60,60,.08);
+}
+
+.display-mode-choice > div{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.display-mode-choice small{
+  color:var(--ink-soft);
+  font-size:10px;
+}
+
+.display-mode-symbol{
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.day-symbol{
+  background:#fff0b8;
+  color:#9b7725;
+}
+
+.night-symbol{
+  background:#dedbf1;
+  color:#666080;
+}
+
+
+/* =============================================
+   ӨДРИЙН MODE
+   ============================================= */
+
+html[data-display="day"]{
+  color-scheme:light;
+}
+
+html[data-display="day"],
+html[data-display="day"] body,
+html[data-display="day"] #root{
+  background:#ffffff !important;
+}
+
+
+/* =============================================
+   ШӨНИЙН MODE
+   Үндсэн CSS variables л солигдоно.
+   ============================================= */
+
+html[data-display="night"]{
+  color-scheme:dark;
+
+  --paper:#101113 !important;
+  --paper2:#242529 !important;
+  --card:#1b1c1f !important;
+
+  --ink:#f4f1ed !important;
+  --ink-soft:#c0b9b4 !important;
+  --ink-faint:#898486 !important;
+
+  --pink:#49323b !important;
+  --pink-d:#dfa0b8 !important;
+
+  --lav:#38344b !important;
+  --lav-d:#b4a2e1 !important;
+
+  --green:#2e4235 !important;
+  --green-d:#94c59d !important;
+
+  --blue:#2c3f4e !important;
+  --blue-d:#93bfdf !important;
+
+  --yellow:#493f28 !important;
+  --yellow-d:#ddc675 !important;
+
+  --shadow:
+    2px 4px 0 rgba(0,0,0,.22) !important;
+
+  --shadow-lg:
+    0 10px 28px rgba(0,0,0,.28) !important;
+}
+
+html[data-display="night"],
+html[data-display="night"] body,
+html[data-display="night"] #root{
+  background:#101113 !important;
+  color:var(--ink) !important;
+}
+
+html[data-display="night"] .app-shell,
+html[data-display="night"] .layout,
+html[data-display="night"] .main{
+  background:#101113 !important;
+}
+
+html[data-display="night"] .bottomnav{
+  background:#1b1c1f !important;
+  border-top-color:#303136 !important;
+  box-shadow:0 -5px 18px rgba(0,0,0,.28) !important;
+}
+
+html[data-display="night"] .side{
+  background:#151619 !important;
+  border-right-color:#303136 !important;
+}
+
+html[data-display="night"] .card{
+  background:var(--card) !important;
+  color:var(--ink) !important;
+}
+
+html[data-display="night"] input,
+html[data-display="night"] textarea,
+html[data-display="night"] select,
+html[data-display="night"] .input{
+  background:#242529 !important;
+  color:#f4f1ed !important;
+  border-color:#37383d !important;
+}
+
+html[data-display="night"] input::placeholder,
+html[data-display="night"] textarea::placeholder{
+  color:#858086 !important;
+}
+
+html[data-display="night"] .profile-hero,
+html[data-display="night"] .premium-card,
+html[data-display="night"] .admin-entry,
+html[data-display="night"] .admin-user{
+  border-color:#34353a !important;
+}
+
+html[data-display="night"] .user-id-chip{
+  background:#28292d !important;
+  color:#f4f1ed !important;
+}
+
+html[data-display="night"] .membership-badge.free{
+  background:#28292d !important;
+  color:#c4bdba !important;
+}
+
+html[data-display="night"] .theme-choice{
+  color:#f4f1ed !important;
+}
+
+html[data-display="night"] .display-mode-choice{
+  background:#242529;
+  border-color:#37383d;
+  color:#f4f1ed;
+}
+
+html[data-display="night"] .display-mode-choice.active{
+  background:#303136;
+  border-color:var(--pink-d);
+}
+
+html[data-display="night"] .premium-plan{
+  background:#242529 !important;
+  color:#f4f1ed !important;
+  border-color:#38393e !important;
+}
+
+html[data-display="night"] .payment-note{
+  background:#242529 !important;
+  color:#f4f1ed !important;
+}
+
+html[data-display="night"] .modal,
+html[data-display="night"] .modalbox,
+html[data-display="night"] .modal-card{
+  background:#1b1c1f !important;
+  color:#f4f1ed !important;
+}
+
+html[data-display="night"] .logout-btn{
+  background:#38262a !important;
+  border-color:#57373e !important;
+  color:#e9aab4 !important;
+}
+
+
+/* Өмнөх pure-white patch-ийг night mode дээр хүчингүй болгоно */
+
+html[data-display="night"] body,
+html[data-display="night"] #root,
+html[data-display="night"] .app,
+html[data-display="night"] .app-shell,
+html[data-display="night"] .main,
+html[data-display="night"] .main-content,
+html[data-display="night"] .content,
+html[data-display="night"] .page,
+html[data-display="night"] .page-content{
+  background:#101113 !important;
+}
+
+
+/* mobile */
+
+@media(max-width:600px){
+
+  .display-mode-grid{
+    gap:8px;
+  }
+
+  .display-mode-choice{
+    padding:10px;
+  }
+
+  .display-mode-symbol{
+    width:34px;
+    height:34px;
+    flex-basis:34px;
+    font-size:18px;
+  }
+}
+
+</style>
+
+
+<style id="temdeglel-final-display-payment">
+
+/* ---------- DISPLAY MODE ---------- */
+
+.profile-display-card{
+  margin-bottom:14px;
+}
+
+.profile-display-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:14px;
+}
+
+.profile-display-choice{
+  border:1.5px solid #eee7e3;
+  background:#fff;
+  border-radius:18px;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:var(--ink);
+  text-align:left;
+}
+
+.profile-display-choice.selected{
+  border-color:var(--pink-d);
+  box-shadow:0 4px 12px rgba(80,60,60,.08);
+}
+
+.profile-display-choice > div{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.profile-display-choice small{
+  color:var(--ink-soft);
+}
+
+.profile-display-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  flex:0 0 38px;
+}
+
+.profile-display-icon.sun{
+  background:#fff1bc;
+  color:#a37d22;
+}
+
+.profile-display-icon.moon{
+  background:#e4e0f4;
+  color:#625d7b;
+}
+
+
+/* ---------- DAY ---------- */
+
+html[data-display="day"],
+html[data-display="day"] body,
+html[data-display="day"] #root,
+html[data-display="day"] .app-shell,
+html[data-display="day"] .layout,
+html[data-display="day"] .main{
+  background:#fff !important;
+}
+
+
+/* ---------- NIGHT ---------- */
+
+html[data-display="night"]{
+  color-scheme:dark;
+
+  --paper:#101114 !important;
+  --paper2:#242529 !important;
+  --card:#1b1c20 !important;
+
+  --ink:#f6f2ee !important;
+  --ink-soft:#c3bbb7 !important;
+  --ink-faint:#8e8888 !important;
+
+  --pink:#4a333d !important;
+  --pink-d:#e09db8 !important;
+
+  --lav:#39344d !important;
+  --lav-d:#b6a4e4 !important;
+
+  --green:#2f4437 !important;
+  --green-d:#93c69c !important;
+
+  --blue:#2c404f !important;
+  --blue-d:#91bfdf !important;
+
+  --yellow:#4b4028 !important;
+  --yellow-d:#dfc775 !important;
+}
+
+html[data-display="night"],
+html[data-display="night"] body,
+html[data-display="night"] #root,
+html[data-display="night"] .app-shell,
+html[data-display="night"] .layout,
+html[data-display="night"] .main,
+html[data-display="night"] .page,
+html[data-display="night"] .page-content,
+html[data-display="night"] .content{
+  background:#101114 !important;
+  color:#f6f2ee !important;
+}
+
+html[data-display="night"] .bottomnav{
+  background:#1b1c20 !important;
+  border-top-color:#303136 !important;
+}
+
+html[data-display="night"] .side{
+  background:#151619 !important;
+  border-right-color:#303136 !important;
+}
+
+html[data-display="night"] .card,
+html[data-display="night"] .profile-main-card,
+html[data-display="night"] .profile-section-card{
+  background:#1b1c20 !important;
+  color:#f6f2ee !important;
+  border-color:#303136 !important;
+}
+
+html[data-display="night"] .profile-display-choice{
+  background:#242529 !important;
+  border-color:#38393e !important;
+  color:#f6f2ee !important;
+}
+
+html[data-display="night"] .profile-display-choice.selected{
+  border-color:#e09db8 !important;
+  background:#303136 !important;
+}
+
+html[data-display="night"] input,
+html[data-display="night"] textarea,
+html[data-display="night"] select,
+html[data-display="night"] .input{
+  background:#242529 !important;
+  color:#f6f2ee !important;
+  border-color:#38393e !important;
+}
+
+html[data-display="night"] .profile-theme-choice{
+  color:#f6f2ee !important;
+}
+
+html[data-display="night"] .profile-id-chip{
+  background:#28292d !important;
+  color:#f6f2ee !important;
+}
+
+html[data-display="night"] .profile-premium-card{
+  background:#342c4c !important;
+  color:#f6f2ee !important;
+}
+
+html[data-display="night"] .premium-status-card{
+  background:#3b3420 !important;
+  color:#f6f2ee !important;
+}
+
+html[data-display="night"] .premium-plan{
+  background:#242529 !important;
+  color:#f6f2ee !important;
+  border-color:#38393e !important;
+}
+
+html[data-display="night"] .modal,
+html[data-display="night"] .modalbox,
+html[data-display="night"] .modal-card{
+  background:#1b1c20 !important;
+  color:#f6f2ee !important;
+}
+
+
+/* ---------- BANK ---------- */
+
+.premium-bank-box{
+  margin-top:16px;
+  padding:16px;
+  border-radius:18px;
+  background:#fffaf7;
+  border:1.5px solid #f0dfd7;
+}
+
+.bank-box-title{
+  font-weight:800;
+  font-size:15px;
+  margin-bottom:12px;
+}
+
+.bank-info-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:9px 0;
+  border-bottom:1px dashed rgba(120,90,80,.16);
+}
+
+.bank-info-row > span{
+  color:var(--ink-soft);
+  font-size:12px;
+}
+
+.bank-copy-value{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.bank-copy-btn{
+  border:0;
+  background:var(--pink);
+  color:var(--ink);
+  border-radius:10px;
+  padding:7px 10px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.bank-id-box{
+  margin-top:13px;
+  padding:12px;
+  border-radius:14px;
+  background:var(--yellow);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.bank-id-box > div{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.bank-id-box small{
+  font-size:10px;
+  color:var(--ink-soft);
+}
+
+.bank-id-box strong{
+  font-size:19px;
+  letter-spacing:2px;
+}
+
+.bank-warning{
+  margin:11px 0 0;
+  font-size:11px;
+  line-height:1.5;
+  color:var(--ink-soft);
+}
+
+html[data-display="night"] .premium-bank-box{
+  background:#242529 !important;
+  border-color:#38393e !important;
+}
+
+html[data-display="night"] .bank-id-box{
+  background:#413a26 !important;
+}
+
+html[data-display="night"] .bank-copy-btn{
+  background:#49333c !important;
+  color:#f6f2ee !important;
+}
+
+@media(max-width:600px){
+  .profile-display-grid{
+    gap:8px;
+  }
+
+  .profile-display-choice{
+    padding:10px;
+  }
+
+  .bank-info-row{
+    align-items:flex-start;
+  }
+}
+
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -9395,6 +9956,14 @@ function TemdeglelAuth({onReady}){
 }
 
 function PremiumPlans({ctx,onClose}){
+  const copyPaymentText=async(text,label)=>{
+    try{
+      await navigator.clipboard.writeText(String(text||""));
+      ctx.showToast(label+" хууллаа ♡");
+    }catch(e){
+      ctx.showToast(String(text||""));
+    }
+  };
   const plans=[
     {months:1,label:"1 сар",price:25000},
     {months:3,label:"3 сар",price:69000,save:"6,000₮ хэмнэнэ"},
@@ -9452,15 +10021,57 @@ function PremiumPlans({ctx,onClose}){
       )
     ),
 
-    React.createElement("div",{className:"payment-note"},
-      React.createElement("b",null,
-        "Төлбөрийн утга: "
+    React.createElement("div",{className:"payment-note premium-bank-box"},
+
+      React.createElement("div",{className:"bank-box-title"},
+        "Төлбөр шилжүүлэх данс"
       ),
-      React.createElement("span",null,
-        ctx.profile.userId || "------"
+
+      React.createElement("div",{className:"bank-info-row"},
+        React.createElement("span",null,"Банк"),
+        React.createElement("b",null,"Хаан банк")
       ),
-      React.createElement("p",null,
-        "Одоогоор merchantгүй тул шилжүүлгийн утга дээр өөрийн 6 оронтой ID-г бичнэ."
+
+      React.createElement("div",{className:"bank-info-row"},
+        React.createElement("span",null,"Данс"),
+        React.createElement("div",{className:"bank-copy-value"},
+          React.createElement("b",null,"5756073642"),
+          React.createElement("button",{
+            type:"button",
+            className:"bank-copy-btn",
+            onClick:()=>copyPaymentText(
+              "5756073642",
+              "Дансны дугаар"
+            )
+          },"Хуулах")
+        )
+      ),
+
+      React.createElement("div",{className:"bank-info-row"},
+        React.createElement("span",null,"Хүлээн авагч"),
+        React.createElement("b",null,"Ш.Ганчимэг")
+      ),
+
+      React.createElement("div",{className:"bank-id-box"},
+        React.createElement("div",null,
+          React.createElement("small",null,"Гүйлгээний утга"),
+          React.createElement("strong",null,
+            ctx.profile.userId || "------"
+          )
+        ),
+
+        React.createElement("button",{
+          type:"button",
+          className:"bank-copy-btn",
+          onClick:()=>copyPaymentText(
+            ctx.profile.userId || "",
+            "ID"
+          )
+        },"Хуулах")
+      ),
+
+      React.createElement("p",{className:"bank-warning"},
+        "Шилжүүлгийн утга дээр зөвхөн өөрийн 6 оронтой ID-г бичээрэй."
       )
     )
   );
@@ -9527,6 +10138,49 @@ function ProfileScreen({ctx}){
         )
       },
         ctx.profile.premium?"Premium":"Free"
+      )
+    ),
+
+    React.createElement(Card,{className:"display-mode-profile-card"},
+      React.createElement("div",{className:"profile-section-title"},
+        "Харагдац"
+      ),
+
+      React.createElement("p",{className:"faint"},
+        "Өдрийн эсвэл шөнийн горимоо сонгоорой."
+      ),
+
+      React.createElement("div",{className:"display-mode-grid"},
+
+        React.createElement("button",{
+          className:"display-mode-choice "+(
+            ctx.displayMode==="day"?"active":""
+          ),
+          onClick:()=>ctx.setDisplayMode("day")
+        },
+          React.createElement("span",{
+            className:"display-mode-symbol day-symbol"
+          },"☀"),
+          React.createElement("div",null,
+            React.createElement("b",null,"Өдөр"),
+            React.createElement("small",null,"Цагаан")
+          )
+        ),
+
+        React.createElement("button",{
+          className:"display-mode-choice "+(
+            ctx.displayMode==="night"?"active":""
+          ),
+          onClick:()=>ctx.setDisplayMode("night")
+        },
+          React.createElement("span",{
+            className:"display-mode-symbol night-symbol"
+          },"☾"),
+          React.createElement("div",null,
+            React.createElement("b",null,"Шөнө"),
+            React.createElement("small",null,"Хар")
+          )
+        )
       )
     ),
 
@@ -9745,7 +10399,9 @@ function App() {
   },[]);
 
   const [tab, setTab] = useLocal('mnayl_tab', 'today');
-  const [theme, setTheme] = useLocal('mnayl_theme', 'light');
+  const [theme, setTheme] = useLocal('mnayl_theme', 'white');
+  const [displayMode, setDisplayMode] = useLocal('mnayl_display_mode', 'day');
+
   const [profile, setProfile] = useLocal('mnayl_profile', {
     name: 'Найз аа',
     premium: false,
@@ -9766,8 +10422,22 @@ function App() {
   const [toastMsg, showToast] = useToast();
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'system') root.removeAttribute('data-theme');else root.setAttribute('data-theme', theme);
+    root.setAttribute('data-theme', theme || 'white');
   }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      'data-display',
+      displayMode === 'night' ? 'night' : 'day'
+    );
+  }, [displayMode]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      'data-display',
+      displayMode === 'night' ? 'night' : 'day'
+    );
+  }, [displayMode]);
 
   // shared "per day" data: mood + water + gratitude + selfcare
   const [days, setDays] = useLocal('mnayl_days', {});
@@ -9883,6 +10553,8 @@ function App() {
     showToast,
     theme,
     setTheme,
+    displayMode,
+    setDisplayMode,
     setTab
   };
 
@@ -14290,6 +14962,50 @@ function ProfileScreen({ctx}){
         )
       ),
 
+    React.createElement("div",{className:"profile-section-card profile-display-card"},
+
+      React.createElement("div",{className:"profile-section-title"},
+        "Харагдац"
+      ),
+
+      React.createElement("div",{className:"profile-section-sub"},
+        "Өдөр эсвэл шөнийн горимоо сонгоорой."
+      ),
+
+      React.createElement("div",{className:"profile-display-grid"},
+
+        React.createElement("button",{
+          className:
+            "profile-display-choice "+
+            (ctx.displayMode==="day"?"selected":""),
+          onClick:()=>ctx.setDisplayMode("day")
+        },
+          React.createElement("span",{
+            className:"profile-display-icon sun"
+          },"☀"),
+          React.createElement("div",null,
+            React.createElement("b",null,"Өдөр"),
+            React.createElement("small",null,"Цагаан")
+          )
+        ),
+
+        React.createElement("button",{
+          className:
+            "profile-display-choice "+
+            (ctx.displayMode==="night"?"selected":""),
+          onClick:()=>ctx.setDisplayMode("night")
+        },
+          React.createElement("span",{
+            className:"profile-display-icon moon"
+          },"☾"),
+          React.createElement("div",null,
+            React.createElement("b",null,"Шөнө"),
+            React.createElement("small",null,"Хар")
+          )
+        )
+      )
+    ),
+
     React.createElement("div",{className:"profile-section-card"},
 
       React.createElement("div",{className:"profile-section-title"},
@@ -14625,3 +15341,115 @@ window.dispatchEvent(new Event("temdeglel-firebase-ready"));
 
 </body>
 </html>
+
+<style id="temdeglel-soft-night-final">
+
+/* ===== SOFT NIGHT — нүдэнд зөөлөн ===== */
+
+html[data-display="night"]{
+  color-scheme:dark;
+
+  --paper:#242223 !important;
+  --paper2:#2d2a2b !important;
+  --card:#302d2e !important;
+
+  --ink:#eee7e4 !important;
+  --ink-soft:#bdb2ae !important;
+  --ink-faint:#958b88 !important;
+}
+
+/* үндсэн background */
+html[data-display="night"],
+html[data-display="night"] body,
+html[data-display="night"] #root,
+html[data-display="night"] .app,
+html[data-display="night"] .app-shell,
+html[data-display="night"] .layout,
+html[data-display="night"] .main,
+html[data-display="night"] .main-content,
+html[data-display="night"] .content,
+html[data-display="night"] .page,
+html[data-display="night"] .page-content{
+  background:#242223 !important;
+  color:#eee7e4 !important;
+}
+
+/* бүх үндсэн card */
+html[data-display="night"] .card,
+html[data-display="night"] .today-card,
+html[data-display="night"] .profile-main-card,
+html[data-display="night"] .profile-section-card{
+  background:#302d2e !important;
+  color:#eee7e4 !important;
+  border-color:#403b3c !important;
+}
+
+/* bottom navigation */
+html[data-display="night"] .bottomnav{
+  background:#2b292a !important;
+  border-color:#403b3c !important;
+  box-shadow:0 8px 28px rgba(0,0,0,.20) !important;
+}
+
+/* сонгогдсон nav */
+html[data-display="night"] .bottomnav .active{
+  background:#493940 !important;
+}
+
+/* input */
+html[data-display="night"] input,
+html[data-display="night"] textarea,
+html[data-display="night"] select,
+html[data-display="night"] .input{
+  background:#353132 !important;
+  color:#eee7e4 !important;
+  border-color:#484243 !important;
+}
+
+/* profile */
+html[data-display="night"] .profile-display-choice{
+  background:#353132 !important;
+  color:#eee7e4 !important;
+  border-color:#484243 !important;
+}
+
+html[data-display="night"] .profile-display-choice.selected{
+  background:#493940 !important;
+  border-color:#c88ca5 !important;
+}
+
+/* premium */
+html[data-display="night"] .profile-premium-card{
+  background:#41353d !important;
+  color:#eee7e4 !important;
+}
+
+html[data-display="night"] .premium-status-card{
+  background:#45402f !important;
+  color:#eee7e4 !important;
+}
+
+html[data-display="night"] .premium-bank-box{
+  background:#302d2e !important;
+  border-color:#484243 !important;
+}
+
+/* текстүүдийг цагаан хурц биш болгох */
+html[data-display="night"] .faint,
+html[data-display="night"] small,
+html[data-display="night"] .profile-section-sub{
+  color:#bdb2ae !important;
+}
+
+/* scrollbar */
+html[data-display="night"] ::-webkit-scrollbar-track{
+  background:#242223;
+}
+
+html[data-display="night"] ::-webkit-scrollbar-thumb{
+  background:#514a4c;
+  border-radius:20px;
+}
+
+</style>
+
