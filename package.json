@@ -1,8 +1,8 @@
 {
-  "name": "minii-ayalal",
+  "name": "temdeglel",
   "version": "0.2.0",
   "private": true,
-  "description": "Миний аялал — Монгол дижитал дэвтэр, төлөвлөгч",
+  "description": "Тэмдэглэл — Монгол дижитал journal, planner",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
